@@ -14,7 +14,7 @@
     @if(app()->bound('sentry') && app('sentry')->getLastEventId())
         <div class="subtitle">Error ID: {{ app('sentry')->getLastEventId() }}</div>
         <script>
-            Sentry.init({ dsn: {{ env('SENTRY_LARAVEL_DSN') }} });
+            Sentry.init({ dsn: '{{ env('SENTRY_LARAVEL_DSN') }}' });
             Sentry.showReportDialog({ eventId: '{{ app('sentry')->getLastEventId() }}' });
         </script>
     @endif
